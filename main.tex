@@ -12,4 +12,30 @@
 \input{contenido/caratula/caratula}
 \pagenumbering{Roman}
 
+% ___Tabla de contenidos___
+\tableofcontents
+
+% ___Lista de figuras___
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+
+% ___Resumen___
+\newpage
+\addcontentsline{toc}{section}{\abstractname}
+\input{contenido/Resumen/Resumen}
+
+% ___Introduccion___
+\newpage
+\pagenumbering{arabic}
+\chapter{Introducción}
+%\input{contenido/Introduccion/Introduccion}
+
+% ___apendices___
+% _______________
+\appendix
+
+% ___Scripts___
+\chapter{Scripts}
+\input{contenido/ApendiceScripts/ApendiceScripts}
+
 \end{document}

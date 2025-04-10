@@ -1,93 +1,115 @@
-\usepackage[table]{xcolor}
-\usepackage{pdfpages}
-%\usepackage{cite}
-\usepackage{tocloft}
-%\usepackage{subfig}
-\renewcommand{\cftfigfont}{Figura }
-\renewcommand{\cfttabfont}{Tabla }
-\usepackage{mathptm}
-\date{\today}
+% -------------------------------
+% Clase de documento y márgenes
+% -------------------------------
+%\documentclass[12pt,a4paper]{report}
+\usepackage[a4paper,top=3cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+\setlength{\parskip}{1cm plus 5mm minus 4mm}
+\renewcommand{\baselinestretch}{1.5}
+
+% -------------------------------
+% Idioma y fuentes modernas
+% -------------------------------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\setmainfont{TeX Gyre Pagella}        % Puedes cambiar por Georgia, TeX Gyre Pagella, etc.
+%\setsansfont{Arial}
+%\setmonofont{Courier New}
+
+% -------------------------------
+% Matemáticas y símbolos
+% -------------------------------
+\usepackage{amsmath,amssymb}
 \usepackage{braket}
-\usepackage{multirow}
-\usepackage{setspace}
-\usepackage{verbatim}
-\usepackage[a4paper]{geometry}
-\geometry{top=3.0cm, bottom=2.5cm, left=3.0cm, right=2.5cm}
+
+% -------------------------------
+% Gráficos y tablas
+% -------------------------------
 \usepackage{graphicx}
-%\usepackage{subfigure}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{amssymb}
-\usepackage{float}
-\usepackage{lmodern}
-\usepackage[spanish,es-lcroman,es-tabla]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage{appendix}
-\usepackage{makeidx}
-\usepackage{titlesec}
-\usepackage{amsmath}
-\usepackage[backend=biber,citestyle=ieee]{biblatex}
-%\bibliography{contenido/Bibliografia/referencias}
-\addbibresource{contenido/Bibliografia/referencias.bib}
-\usepackage{fancyhdr}
-% encabezado paginas normales solo BOOK
-% [] es para pares {} es para impares
-\lhead[]{} % izquierda
-\chead[]{} % centro
-\rhead[]{} % derecha
-\renewcommand{\headrulewidth}{0pt} % grosor linea de separacion
-% pie de pagina paginas normales solo BOOK
-\lfoot[]{} % izquierda
-\cfoot[\thepage]{\thepage} % centro - pone el numero de la pagina
-\rfoot[]{} % derecha
-\renewcommand{\footrulewidth}{0pt} % grosor linea de separacion
-% encabezado y pie de pagina de los inicio de capitulo
-\pagestyle{plain}{
-	\fancyhead[L]{} % cabecera lado izquierdo
-	\fancyhead[C]{} % cabecera lado centro
-	\fancyhead[R]{} % cabecera lado derecha
-	\fancyfoot[L]{} % pie pagina lado izquierdo
-	\fancyfoot[C]{\thepage} % pie lado centro - pone numero de la pagina
-	\fancyfoot[R]{} % pie pagina lado derecho
-	\renewcommand{\headrulewidth}{0pt} % cabecera - grosor linea de separacion
-	\renewcommand{\footrulewidth}{0pt} % pie pagina - grosor linea de separacion
-}
-    % opciones del paquete setspace
-                         %\doublespacing
-                         %\onehalfspace
-                         %\singlespace
-                         %\spacing{1.5}
-                         %===========
-\setlength{\parskip}{1cm plus 5mm minus 4mm}  %distancia entre parrafos
+\usepackage{svg}
+\usepackage{pdfpages}
 
-
-\newtheorem{hk}{Teorema}
-
-
-\usepackage{array}
+% -------------------------------
+% Colores y estilo de tablas
+% -------------------------------
+\PassOptionsToPackage{table}{xcolor}
+\usepackage{xcolor}
 \definecolor{Gray}{gray}{0.85}
 \definecolor{Task}{RGB}{184,230,168}
 \definecolor{NoTask}{RGB}{224,224,224}
 \definecolor{Cabecera}{RGB}{217, 234, 247}
 \newcolumntype{a}{>{\columncolor{Gray}}l}
 
-\renewcommand{\baselinestretch}{1.5}
+% -------------------------------
+% Encabezados y títulos
+% -------------------------------
+\usepackage{fancyhdr}
+\pagestyle{plain}{
+	\fancyhead[L]{}
+	\fancyhead[C]{}
+	\fancyhead[R]{}
+	\fancyfoot[L]{}
+	\fancyfoot[C]{\thepage}
+	\fancyfoot[R]{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\bfseries\Large}{\chaptername\ \thechapter}{20pt}{\Huge}
 
-\usepackage{svg}
+% -------------------------------
+% Bibliografía
+% -------------------------------
+\usepackage[backend=biber,citestyle=ieee]{biblatex}
+\addbibresource{contenido/Bibliografia/referencias.bib}
+
+% -------------------------------
+% Listados de código y cajas
+% -------------------------------
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{verbatim}
+
+% -------------------------------
+% Extras
+% -------------------------------
+\usepackage{makeidx}
+\usepackage{appendix}
+\usepackage{tocloft}
+\renewcommand{\cftfigfont}{Figura }
+\renewcommand{\cfttabfont}{Tabla }
+
+% -------------------------------
+% Gantt y gráficos de tareas
+% -------------------------------
+\usepackage{pgfgantt}
+
+% -------------------------------
+% Hipervínculos y metadatos PDF
+% -------------------------------
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,     
+    linkcolor=black,
     urlcolor=black,
     citecolor=black,
     pdftitle={Control de estados electrónicos de defectos vía polarización ferroeléctrica en materiales luminiscentes bidimensionales},
-    pdfpagemode=FullScreen,
+%    pdfpagemode=FullScreen,
     pdfauthor={Shigueru Nagata},
-    }
+}
 
-\usepackage{pgfgantt}
-\usepackage{booktabs}
-\usepackage{multirow}
-% comentario ramdon
+% -------------------------------
+% Teoremas (si los usas)
+% -------------------------------
+\newtheorem{hk}{Teorema}
+
+% -------------------------------
+% Fecha automática
+% -------------------------------
+\date{\today}
